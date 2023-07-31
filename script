@@ -249,12 +249,10 @@ getgenv().AimPart = "UpperTorso" -- For R15 Games: {UpperTorso, LowerTorso, Huma
             end
         end
          if CheckIfJumped == true then
-       if AimlockTarget.Character.Humanoid.FloorMaterial == Enum.Material.Air then
-    
-           getgenv().AimPart = "UpperTorso"
-       else
-         getgenv().AimPart = getgenv().OldAimPart
-
-       end
+if AimlockTarget and AimlockTarget.Character and AimlockTarget.Character:FindFirstChild("Humanoid") then
+    if AimlockTarget.Character.Humanoid.FloorMaterial == Enum.Material.Air then
+        getgenv().AimPart = "UpperTorso"
+    else
+        getgenv().AimPart = getgenv().OldAimPart
     end
-end)
+end
